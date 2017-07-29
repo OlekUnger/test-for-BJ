@@ -1,0 +1,28 @@
+{% block tasks %}
+    <div class="row">
+        {% for task in tasks %}
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="../../template/pics/{{ task.image }}" alt="">
+                    <div class="caption">
+                        <p><b>Имя: </b>{{ task.name }}</p>
+                        <p><b>Email: </b>{{ task.email }}</p>
+                        <p><b>Статус: </b>
+                            {% if task.status==0 %}
+                                <span class="red">не выполнено</span>
+                            {% else %}
+                                <span class="green">выполнено</span>
+                            {% endif %}</p>
+                        <div class="text"><b>Текст: </b>{{ task.text }}</div>
+                        {% if session.id ==1 %}
+                            <a href="/task/edit/?edit={{ task.task_id }}" class="btn">Редактировать</a>
+                            <a href="/main/index/?delete={{ task.task_id }}" class="btn">Удалить</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+    "require": {
+        "illuminate/database": "^5.4",
+        "twig/twig": "^2.0",
+        "wixel/gump": "dev-master",
+        "fzaninotto/faker": "^1.6",
+        "intervention/image": "^2.3"
+    }
+}

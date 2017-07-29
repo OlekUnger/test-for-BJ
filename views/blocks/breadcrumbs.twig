@@ -1,0 +1,17 @@
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li>Сортировать по:</li>
+        <li{% if s_uri == 'main' %} class="active" {% endif %}>
+            <a href="{% if s_uri == 'main' %}/ {% else %} /{% endif %}">Порядку</a>
+        </li>
+        <li{% if s_uri == 'email' %} class="active" {% endif %}>
+            <a href="{% if s_uri == 'email' %} # {% else %} /main/index/?do=email{% endif %}">Email</a>
+        </li>
+        <li{% if s_uri == 'name' %} class="active" {% endif %}>
+            <a href="{% if s_uri == 'name' %} # {% else %} /main/index/?do=name{% endif %}">Имени</a>
+        </li>
+        <li{% if s_uri == 'status' %} class="active" {% endif %}>
+            <a href="{% if s_uri == 'status' %} # {% else %} /main/index/?do=status{% endif %}">Статусу</a>
+        </li>
+    </ol>
+{% endblock %}

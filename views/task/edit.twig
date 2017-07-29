@@ -1,0 +1,58 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+    <div class="form-container flex-column">
+        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            {% if success %}
+                <div class="alert alert-success">{{ success }}</div>
+            {% endif %}
+            <div class="form-group">
+                <label for="crName" class="col-sm-2 control-label">Имя</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" id="crName" placeholder="Имя пользователя"
+                           value="{% if POST.name %}{{ POST.name }}{% else %}{{ task.name }}{% endif %}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="crText" class="col-sm-2 control-label">Задача</label>
+                <div class="col-sm-10">
+
+                    <textarea rows='5' class="form-control" name="text" id="crText"
+                              placeholder="Текст задачи">{% if POST.text %}{{ POST.text }}{% else %}{{ task.text }}{% endif %}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status" class="col-sm-2 control-label">Статус</label>
+                <div class="col-sm-10">
+                    <select id="status" name="status">
+                        {% if task.status==0 %}
+                            <option value="0">Не выполнено</option>
+                            <option value="1">Выполнено</option>
+                        {% else %}
+                            <option value="1">Выполнено</option>
+                            <option value="0">Не выполнено</option>
+                        {% endif %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pic" class="col-sm-2 control-label">Картинка</label>
+                <div class="col-sm-10">
+                    <input id="pic" type="file" name="pic">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" name="edit">Редактировать задачу</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

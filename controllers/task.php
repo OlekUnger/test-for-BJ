@@ -39,9 +39,9 @@ class Task
                 $_SESSION['error'] = array_shift($errors);
             }
         }
+
         $_SESSION['auth'] = \Auth::getSession();
         \View::render('task/create', $data = [
-
             'title' => 'Создание задачи',
             'uri' => 'task_create',
             'POST'=>$_POST,

@@ -1,5 +1,4 @@
 <?php
-//error_reporting(-1);
 session_start();
 
 require_once "config.php";
@@ -7,9 +6,8 @@ require_once "libs/views.php";
 require_once "libs/gump.php";
 require_once "libs/IntImage.php";
 
-
 $routes = explode('/', $_SERVER['REQUEST_URI']);
-//print_r($routes);
+
 $controller_name = "Main";
 $action_name = "index";
 

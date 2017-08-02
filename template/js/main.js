@@ -11,9 +11,9 @@
 (function () {
 
     $('.show_preview').on('click', function () {
-        $('.alert').remove();
+        // $('.mes').remove();
         var input_name = $('input[name=name]'),
-            name =input_name.val(),
+            name = $.trim(input_name.val()),
             status = $('input[name=status]').val(),
             email = $('input[name=email]').val(),
             text = $('textarea[name=text]').val(),
@@ -21,18 +21,17 @@
 
         if (name == '') {
             $('.message').addClass('alert alert-danger').text('Заполните поле Имя');
-
-        }else if(text == ''){
+        }
+        else if(text == ''){
             $('.message').addClass('alert alert-danger').text('Заполните поле Текст');
-
-        } else {
-            $('.message').remove();
-
+        }
+        else {
             $.ajax({
                 url: '/task/create/',
                 type: 'GET',
                 data: {val: name},
                 success: function (res) {
+
                     var result = JSON.parse(res);
                     if (result.answer == 'no') {
                         $('.message').addClass('alert alert-danger').text('Такого пользователя не существует');

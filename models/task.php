@@ -50,6 +50,7 @@ class Task extends \Illuminate\Database\Eloquent\Model
         } else {
             $res = array('answer' => 'yes', 'email' => $email);
             return json_encode($res);
+
         }
     }
 
@@ -108,5 +109,4 @@ class Task extends \Illuminate\Database\Eloquent\Model
         }
         return self::where('task_id', '=', $task_id)->delete();
     }
-
 }

@@ -2,23 +2,15 @@
 namespace App;
 class Fakers
 {
-
     public function index()
     {
         $connect = new \Auth();
         if($connect->is_admin()){
-            \View::render('fakers', $data = [
-
-            ]);
+            \View::render('fakers');
         } else {
-            \View::render('auth/login', $data = [
-
-            ]);
+            \View::render('auth/login');
         }
-        \View::render('fakers', $data = [
-
-        ]);
+        \View::render('fakers');
 //        \Fakers::createFakers();
     }
-
 }
